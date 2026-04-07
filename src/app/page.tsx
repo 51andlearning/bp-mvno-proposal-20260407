@@ -74,7 +74,7 @@ export default function Home() {
               alt="DSG Group"
               width={60}
               height={22}
-              className="object-contain brightness-0 invert opacity-30"
+              className="object-contain opacity-60"
             />
           </div>
           <div className="text-center md:text-right">

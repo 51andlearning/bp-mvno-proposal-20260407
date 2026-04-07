@@ -33,7 +33,7 @@ export function HeroSection() {
               alt="DSG Group"
               width={80}
               height={28}
-              className="object-contain brightness-0 invert opacity-70"
+              className="object-contain opacity-90"
               priority
             />
           </div>
