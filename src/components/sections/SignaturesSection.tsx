@@ -101,7 +101,7 @@ export function SignaturesSection() {
         {/* CTA buttons */}
         <div className="mt-10 flex flex-col sm:flex-row gap-4">
           <a
-            href="mailto:info@mvne.co.za?subject=Proposal%20Acceptance%20%E2%80%94%20BP%20MVNO%20PWA%20%26%20USSD&body=Dear%20Yaron%2C%0A%0AWe%20hereby%20accept%20the%20proposal%20for%20the%20BP%20MVNO%20PWA%20and%20USSD%20platform%20dated%2031%20March%202026.%0A%0AKind%20regards%2C"
+            href="mailto:edwardw@mvne.co.za?subject=Proposal%20Acceptance%20%E2%80%94%20BP%20MVNO%20PWA%20%26%20USSD&body=Dear%20Yaron%2C%0A%0AWe%20hereby%20accept%20the%20proposal%20for%20the%20BP%20MVNO%20PWA%20and%20USSD%20platform%20dated%2031%20March%202026.%0A%0AKind%20regards%2C"
             className="flex-1 inline-flex items-center justify-center gap-3 bg-[#0369A1] hover:bg-[#0284C7] text-white font-semibold px-8 py-4 rounded-xl transition-colors text-base"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
