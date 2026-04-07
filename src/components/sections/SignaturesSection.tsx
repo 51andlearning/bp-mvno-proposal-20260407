@@ -97,6 +97,25 @@ export function SignaturesSection() {
             to USD/ZAR exchange rate fluctuations.
           </p>
         </div>
+
+        {/* CTA buttons */}
+        <div className="mt-10 flex flex-col sm:flex-row gap-4">
+          <a
+            href="mailto:info@mvne.co.za?subject=Proposal%20Acceptance%20%E2%80%94%20BP%20MVNO%20PWA%20%26%20USSD&body=Dear%20Yaron%2C%0A%0AWe%20hereby%20accept%20the%20proposal%20for%20the%20BP%20MVNO%20PWA%20and%20USSD%20platform%20dated%2031%20March%202026.%0A%0AKind%20regards%2C"
+            className="flex-1 inline-flex items-center justify-center gap-3 bg-[#0369A1] hover:bg-[#0284C7] text-white font-semibold px-8 py-4 rounded-xl transition-colors text-base"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Accept Proposal
+          </a>
+          <a
+            href="/proposal.pdf"
+            download="BP-MVNO-PWA-USSD-Proposal-MVNE-20260331.pdf"
+            className="flex-1 inline-flex items-center justify-center gap-3 bg-[#F8FAFC] hover:bg-[#F1F5F9] border border-[#E2E8F0] text-[#0F172A] font-semibold px-8 py-4 rounded-xl transition-colors text-base"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Proposal
+          </a>
+        </div>
       </div>
     </section>
   );
