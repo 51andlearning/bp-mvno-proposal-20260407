@@ -17,7 +17,7 @@ export function HeroSection() {
 
       {/* Top logo bar */}
       <div className="relative border-b border-white/10">
-        <div className="max-w-5xl mx-auto px-6 py-5 flex items-center justify-end">
+        <div className="max-w-5xl mx-auto px-6 py-5 flex items-center justify-start">
           <div className="flex items-center gap-3">
             <span className="text-[#64748B] text-xs uppercase tracking-widest hidden sm:block">
               Prepared for
