@@ -1,63 +1,128 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 import { ussd, supportLevels } from "@/content/proposal";
 
 export function UssdSection() {
   return (
-    <section id="ussd" className="py-16 px-6 bg-[#F8FAFC]">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-2xl font-bold text-[#0F172A] mb-2">{ussd.title}</h2>
-        <div className="w-12 h-1 bg-[#0369A1] rounded mb-6" />
-        <p className="text-[#64748B] mb-8">{ussd.description}</p>
+    <section id="ussd" className="py-20 px-6 bg-[#F8FAFC]">
+      <div className="max-w-5xl mx-auto">
+        {/* Header */}
+        <div className="mb-10">
+          <Badge className="mb-4 bg-[#0369A1]/10 text-[#0369A1] border-[#0369A1]/20 hover:bg-[#0369A1]/10">
+            Scope of Work
+          </Badge>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#0F172A] mb-3">
+            {ussd.fullTitle}
+          </h2>
+          <div className="w-14 h-1 bg-[#0369A1] rounded-full mb-6" />
+          <p className="text-[#64748B] text-lg leading-relaxed max-w-3xl">{ussd.description}</p>
+        </div>
 
-        <h3 className="text-lg font-semibold text-[#0F172A] mb-4">Support Levels</h3>
-        <div className="overflow-x-auto mb-8">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="bg-white">
-                <th className="text-left p-3 font-semibold text-[#0F172A]">Level</th>
-                <th className="text-left p-3 font-semibold text-[#0F172A]">Description</th>
-              </tr>
-            </thead>
-            <tbody>
+        <div className="grid lg:grid-cols-5 gap-8">
+          {/* Left: support levels */}
+          <div className="lg:col-span-3">
+            <h3 className="text-base font-semibold text-[#334155] uppercase tracking-wide mb-4">
+              Support Levels
+            </h3>
+            <div className="space-y-3 mb-8">
               {supportLevels.map((row) => (
-                <tr key={row.level} className={row.highlight ? "bg-[#0369A1]/5 font-semibold" : ""}>
-                  <td className="p-3 text-[#334155]">{row.level}</td>
-                  <td className="p-3 text-[#64748B]">
-                    {row.description}
+                <div
+                  key={row.level}
+                  className={`flex items-start gap-4 p-4 rounded-xl border transition-all ${
+                    row.highlight
+                      ? "bg-[#0369A1]/5 border-[#0369A1]/30"
+                      : "bg-white border-[#E2E8F0]"
+                  }`}
+                >
+                  <span
+                    className={`text-xs font-bold px-2 py-1 rounded-md shrink-0 ${
+                      row.highlight
+                        ? "bg-[#0369A1] text-white"
+                        : "bg-[#E2E8F0] text-[#334155]"
+                    }`}
+                  >
+                    {row.level}
+                  </span>
+                  <div>
+                    <p
+                      className={`text-sm ${
+                        row.highlight ? "font-semibold text-[#0F172A]" : "text-[#64748B]"
+                      }`}
+                    >
+                      {row.description}
+                    </p>
                     {row.note && (
-                      <Badge variant="outline" className="ml-2 text-xs">
+                      <Badge
+                        variant="outline"
+                        className="mt-1 text-xs border-[#0369A1]/30 text-[#0369A1]"
+                      >
                         {row.note}
                       </Badge>
                     )}
-                  </td>
-                </tr>
+                  </div>
+                </div>
               ))}
-            </tbody>
-          </table>
-        </div>
+            </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          <Card className="border-[#E2E8F0]">
-            <CardHeader>
-              <CardTitle className="text-base text-[#0F172A]">Once-off Fee</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-3xl font-extrabold text-[#0369A1]">{ussd.onceOff.amount}</p>
-              <p className="text-sm text-[#64748B] mt-1">{ussd.onceOff.label}</p>
-              <p className="text-xs text-[#94A3B8] mt-1">{ussd.onceOff.note}</p>
-            </CardContent>
-          </Card>
-          <Card className="border-[#E2E8F0]">
-            <CardHeader>
-              <CardTitle className="text-base text-[#0F172A]">Monthly Retainer</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-3xl font-extrabold text-[#0369A1]">{ussd.monthly.amount}</p>
-              <p className="text-sm text-[#64748B] mt-1">{ussd.monthly.label}</p>
-              <p className="text-xs text-[#94A3B8] mt-1">{ussd.monthly.note}</p>
-            </CardContent>
-          </Card>
+            <Separator className="mb-6" />
+
+            <h3 className="text-base font-semibold text-[#334155] uppercase tracking-wide mb-4">
+              Additional Services
+            </h3>
+            <ul className="space-y-3">
+              {ussd.additionalServices.map((service, i) => (
+                <li key={i} className="flex items-start gap-3 text-sm text-[#64748B]">
+                  <span className="mt-0.5 w-5 h-5 rounded-full bg-[#0369A1]/10 text-[#0369A1] flex items-center justify-center shrink-0 text-xs font-bold">
+                    ✓
+                  </span>
+                  {service}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Right: pricing cards */}
+          <div className="lg:col-span-2 space-y-4">
+            <Card className="border-[#E2E8F0] bg-white shadow-sm">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-semibold text-[#64748B] uppercase tracking-wide">
+                  Once-off Fee
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-4xl font-extrabold text-[#0F172A] mb-1">
+                  {ussd.onceOff.amount}
+                </p>
+                <p className="text-xs text-[#94A3B8] mb-3">{ussd.onceOff.note}</p>
+                <p className="text-sm text-[#64748B]">{ussd.onceOff.label}</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-[#0369A1]/30 bg-[#0369A1]/5 shadow-sm">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-semibold text-[#0369A1] uppercase tracking-wide">
+                  Monthly Retainer
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-4xl font-extrabold text-[#0369A1] mb-1">
+                  {ussd.monthly.amount}
+                </p>
+                <p className="text-xs text-[#94A3B8] mb-3">{ussd.monthly.note}</p>
+                <p className="text-sm text-[#64748B] mb-3">{ussd.monthly.label}</p>
+                <Separator className="mb-3" />
+                <ul className="space-y-1">
+                  {ussd.monthly.includes.map((item, i) => (
+                    <li key={i} className="text-xs text-[#64748B] flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#0369A1] shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     </section>

@@ -126,5 +126,16 @@
   }
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
   }
+}
+
+/* Brand tokens */
+:root {
+  --brand-primary: #0F172A;
+  --brand-accent: #0369A1;
+  --brand-danger: #C8102E;
+  --brand-surface: #F8FAFC;
+  --brand-muted: #64748B;
+  --brand-slate: #334155;
 }
