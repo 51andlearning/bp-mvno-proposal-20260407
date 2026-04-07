@@ -28,7 +28,7 @@ export default function Home() {
               alt="MVNE"
               width={72}
               height={26}
-              className="object-contain brightness-0 invert opacity-80"
+              className="object-contain"
             />
             <span className="text-white/20 font-thin">|</span>
             <Image
@@ -74,7 +74,7 @@ export default function Home() {
               alt="MVNE"
               width={80}
               height={28}
-              className="object-contain brightness-0 invert opacity-50"
+              className="object-contain opacity-90"
             />
             <div className="h-6 w-px bg-white/10" />
             <Image
