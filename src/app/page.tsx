@@ -20,7 +20,7 @@ const navLinks = [
 export default function Home() {
   return (
     <>
-      <header className="sticky top-0 z-50 bg-[#0F172A]/95 backdrop-blur-md border-b border-white/10">
+      <header className="sticky top-0 z-50 bg-white backdrop-blur-md border-b border-slate-200">
         <nav className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Image
@@ -30,7 +30,7 @@ export default function Home() {
               height={26}
               className="object-contain"
             />
-            <span className="text-white/20 font-thin">|</span>
+            <span className="text-slate-300 font-thin">|</span>
             <Image
               src="/images/dsg-logo.png"
               alt="DSG Group"
@@ -44,7 +44,7 @@ export default function Home() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="px-3 py-1.5 text-[#94A3B8] hover:text-white hover:bg-white/5 rounded-lg text-sm transition-colors"
+                  className="px-3 py-1.5 text-[#64748B] hover:text-[#0369A1] hover:bg-[#0369A1]/5 rounded-lg text-sm transition-colors"
                 >
                   {link.label}
                 </a>
