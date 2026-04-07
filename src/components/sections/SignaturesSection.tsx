@@ -1,15 +1,74 @@
+"use client";
+
+import { useState, useRef } from "react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { vendor, client, meta } from "@/content/proposal";
 
-const SignatureLine = ({ label }: { label: string }) => (
-  <div className="mb-5">
-    <p className="text-xs font-semibold text-[#94A3B8] uppercase tracking-widest mb-2">
-      {label}
-    </p>
-    <div className="h-10 border-b-2 border-dashed border-[#E2E8F0]" />
-  </div>
-);
+function SignatureUpload({ id }: { id: string }) {
+  const [preview, setPreview] = useState<string | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => setPreview(ev.target?.result as string);
+    reader.readAsDataURL(file);
+  };
+
+  return (
+    <div>
+      <p className="text-xs font-semibold text-[#94A3B8] uppercase tracking-widest mb-2">
+        Signature
+      </p>
+      <div
+        onClick={() => inputRef.current?.click()}
+        className="h-20 border-2 border-dashed border-[#E2E8F0] rounded-xl flex items-center justify-center cursor-pointer hover:border-[#0369A1] transition-colors overflow-hidden"
+      >
+        {preview ? (
+          <img src={preview} alt="Signature" className="max-h-16 max-w-full object-contain" />
+        ) : (
+          <span className="text-xs text-[#94A3B8]">Click to upload signature image</span>
+        )}
+      </div>
+      <input
+        ref={inputRef}
+        id={id}
+        type="file"
+        accept="image/*"
+        className="hidden"
+        onChange={handleFile}
+      />
+    </div>
+  );
+}
+
+function EditableField({
+  label,
+  defaultValue,
+  placeholder,
+  type = "text",
+}: {
+  label: string;
+  defaultValue?: string;
+  placeholder?: string;
+  type?: string;
+}) {
+  return (
+    <div className="mb-5">
+      <p className="text-xs font-semibold text-[#94A3B8] uppercase tracking-widest mb-2">
+        {label}
+      </p>
+      <input
+        type={type}
+        defaultValue={defaultValue}
+        placeholder={placeholder}
+        className="w-full border border-[#E2E8F0] rounded-lg px-3 py-2 text-sm text-[#334155] font-medium focus:outline-none focus:border-[#0369A1] bg-white"
+      />
+    </div>
+  );
+}
 
 export function SignaturesSection() {
   return (
@@ -48,20 +107,10 @@ export function SignaturesSection() {
               </div>
             </div>
 
-            <div className="mb-6">
-              <p className="text-xs font-semibold text-[#94A3B8] uppercase tracking-widest mb-1">
-                Name
-              </p>
-              <p className="font-semibold text-[#334155]">{vendor.signatory}</p>
-            </div>
-            <div className="mb-6">
-              <p className="text-xs font-semibold text-[#94A3B8] uppercase tracking-widest mb-1">
-                Position
-              </p>
-              <p className="font-semibold text-[#334155]">{vendor.signatoryTitle}</p>
-            </div>
-            <SignatureLine label="Date" />
-            <SignatureLine label="Signature" />
+            <EditableField label="Name" defaultValue={vendor.signatory} />
+            <EditableField label="Position" defaultValue={vendor.signatoryTitle} />
+            <EditableField label="Date" type="date" />
+            <SignatureUpload id="sig-mvne" />
           </div>
 
           {/* BP block */}
@@ -81,10 +130,10 @@ export function SignaturesSection() {
               </div>
             </div>
 
-            <SignatureLine label="Name" />
-            <SignatureLine label="Position" />
-            <SignatureLine label="Date" />
-            <SignatureLine label="Signature" />
+            <EditableField label="Name" placeholder="Full name" />
+            <EditableField label="Position" placeholder="Job title" />
+            <EditableField label="Date" type="date" />
+            <SignatureUpload id="sig-bp" />
           </div>
         </div>
 
