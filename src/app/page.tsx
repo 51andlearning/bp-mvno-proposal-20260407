@@ -22,13 +22,21 @@ export default function Home() {
     <>
       <header className="sticky top-0 z-50 bg-[#0F172A]/95 backdrop-blur-md border-b border-white/10">
         <nav className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <Image
               src="/images/mvne-logo.png"
               alt="MVNE"
               width={72}
               height={26}
               className="object-contain brightness-0 invert opacity-80"
+            />
+            <span className="text-white/20 font-thin">|</span>
+            <Image
+              src="/images/dsg-logo.png"
+              alt="DSG Group"
+              width={60}
+              height={22}
+              className="object-contain opacity-90"
             />
           </div>
           <ul className="hidden md:flex items-center gap-1">

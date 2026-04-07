@@ -17,26 +17,7 @@ export function HeroSection() {
 
       {/* Top logo bar */}
       <div className="relative border-b border-white/10">
-        <div className="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
-          <div className="flex items-center gap-6">
-            <Image
-              src="/images/mvne-logo.png"
-              alt="MVNE"
-              width={100}
-              height={36}
-              className="object-contain brightness-0 invert"
-              priority
-            />
-            <span className="text-white/20 text-xl font-thin">|</span>
-            <Image
-              src="/images/dsg-logo.png"
-              alt="DSG Group"
-              width={80}
-              height={28}
-              className="object-contain opacity-90"
-              priority
-            />
-          </div>
+        <div className="max-w-5xl mx-auto px-6 py-5 flex items-center justify-end">
           <div className="flex items-center gap-3">
             <span className="text-[#64748B] text-xs uppercase tracking-widest hidden sm:block">
               Prepared for
